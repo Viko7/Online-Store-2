@@ -1,0 +1,609 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <!-- Meta tags Obrigatórias -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <script src="https://kit.fontawesome.com/9efd7c4e4a.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" type="text/css" href="estilo.css">
+    <link rel="stylesheet" href="text/java" hre="java.js">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Jost:wght@100;200;300;400;500;600;700&display=swap" rel="stylesheet">
+	<link rel="stylesheet"
+  	href="https://unpkg.com/boxicons@latest/css/boxicons.min.css">
+    
+    <title>Online Store - Variedades para Você</title>
+    <link rel="icon" href="img/logo.png">
+
+  </head>
+  <body>
+
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-light nav-principal fixed-top"><!--NavBar-->
+            <div class="row">
+                <a href="index.html" class="navbar-brand"> <!--Logo-->
+                    <img src="img/logo.png" width="112">
+                </a>                 
+                      <div class="navbar-collapse">
+                        <ul class="navbar-nav">
+                          <li class="nav-item loc">
+                            <a href="#" class="nav-link ml-2" id="openLocmenu">
+                              <i class="fa-solid fa-location-dot"></i>
+                              <h6 class="ml-2">Selecione sua localização</h6>
+                              <i class="fa-solid fa-chevron-down ml-2 arrow-loc"></i>
+                            </a>
+                          </li>
+                        </ul>
+                      </div>
+                    </div>
+
+                  
+
+                    <div class="search-container"><!--Search Box-->
+                        <input type="text" placeholder=" Pesquisa..." class="search-box">
+                        <div class="search-icon">
+                            <i class="fa-solid fa-magnifying-glass"></i>
+                        </div>
+                    </div><!--Seach Box-->
+
+                    <div class="cart-box ml-4"><!--Cart Box-->
+                        <i class="fa-solid fa-cart-shopping cart"></i>
+                        <h6 class="ml-2">Carrinho</h6>
+                    </div><!--Cart Box-->
+
+                    <div class="login-container ml-4"><!--Login Box-->
+                        <i class="fa-solid fa-user user"></i>
+                        <h6 class="ml-2">Login/Cadastre-se</h6>
+                    </div><!--Login Box-->
+                </div>
+            </div>
+        </nav><!--NavBar Fim-->
+    </header>
+
+    <div id="menuLoc" class="menuLoc"><!--Menu Escondido Localização-->
+        <div class="menu-loc">
+            <button id="closeMenuBtn" class="btn btn-danger close-btn mb-4">
+                <i class="fa-solid fa-times"></i>
+            </button>
+            <form class="search-loc mt-4">
+                <label for="CEP">
+                    <div class="input-group">
+                        <input type="text" class="form-control" id="cepInput" placeholder="Digite o CEP(Somente Números)">
+                        <i class="fa-solid fa-magnifying-glass btn btn-primary ml-2 mt-1"></i>
+                      </div>
+                </label>
+            </form>              
+          <ul class="menu-list">
+            <!-- Lista de itens de localização -->
+            <li><a href="#">Acre</a></li>
+            <li><a href="#">Alagoas</a></li>
+            <li><a href="#">Amazonas</a></li>
+            <li><a href="#">Amapá</a></li>
+            <li><a href="#">Bahia</a></li>
+            <li><a href="#">Ceará</a></li>
+            <li><a href="#">Distrito Federal</a></li>
+            <li><a href="#">Espírito Santo</a></li>
+            <li><a href="#">Goiás</a></li>
+            <li><a href="#">Mato Grosso</a></li>
+            <li><a href="#">Mato Grosso do Sul</a></li>
+            <li><a href="#">Minas Gerais</a></li>
+            <li><a href="#">Maranhão</a></li>
+            <li><a href="#">Paraíba</a></li>
+            <li><a href="#">Pernambuco</a></li>
+            <li><a href="#">Piauí</a></li>
+            <li><a href="#">Pará</a></li>
+            <li><a href="#">Paraná</a></li>
+            <li><a href="#">Rio Grande do Norte</a></li>
+            <li><a href="#">Rondônia</a></li>
+            <li><a href="#">Roraima</a></li>
+            <li><a href="#">Rio de Janeiro</a></li>
+            <li><a href="#">Rio Grande do Sul</a></li>
+            <li><a href="#">São Paulo</a></li>
+            <li><a href="#">Santa Catarina</a></li>
+            <li><a href="#">Tocantins</a></li>
+            <!-- Adicione outros itens aqui -->
+          </ul>          
+        </div>
+    </div><!--Fim Menu Escondido Localização-->
+
+    <div id="overlay"></div><!--Camada Sombra Para SubMenu-->
+
+    <nav class="subnav navbar-light"><!--Nav iNFERIOR-->
+        <ul class="snav">
+            <div class="menu-hidden">
+                <button id="toggle-menu" class="btn btn-primary">☰</button><!--Botão Bars Para Abrir Menu-->
+
+                <nav id="menu" style="display: none;">
+                    <ul><!--Codigo Para Abrir Menu-->
+                        <li class="nav-item" onmouseover="showTecnologiaSubmenu()" onmouseout="hideTecnologiaSubmenu()">
+                            <a href="#" class="nav-link">Tecnologia <i class="fa-solid fa-caret-right ml-2"></i></a>
+                            <div class="submenu" id="submenuTecnologia">
+                                <a href="">Televisores</a>
+                                <a href="">Telefones e Celulares</a>
+                                <a href="">Informática</a>
+                                <a href="">Tablets</a>
+                                <a href="">Áudio</a>
+                                <a href="">Acessórios</a>
+                            </div>
+                        </li>
+
+                        </li><!--Menu Escondido EletroDomésticos-->                    
+                        <li class="nav-item" onmouseover="showEletrodomesticosSubmenu()" onmouseout="hideEletrodomesticosSubmenu()">
+                            <a href="#" class="nav-link">EletroDomésticos <i class="fa-solid fa-caret-right ml-2"></i></a>
+                            <div class="submenu" id="submenuEletrodomesticos">
+                                <a href="">Refrigeradores</a>
+                                <a href="">Geladeiras</a>
+                                <a href="">Lavadoras</a>
+                                <a href="">Lava e Seca</a>
+                                <a href="">Fogões</a>
+                                <a href="">CookTop</a>
+                            </div>
+                        </li>
+                        <!--Menu Escondido EletroDomésticos-->
+
+                        <!--Menu Escondido Escritório-->
+                        <li class="nav-item" onmouseover="showEscritorioSubmenu()" onmouseout="hideEscritorioSubmenu()">
+                            <a href="#" class="nav-link">Papelaria e Escritório <i class="fa-solid fa-caret-right ml-2"></i></a>
+                            <div class="submenu" id="submenuEscritorio">
+                                <a href="">Móveis e iluminazação</a>
+                                <a href="">Materiais Escolares e Educacionais</a>
+                                <a href="">Eletrônico para Escritório</a>
+                                <a href="">Arte e Artesanato</a>
+                                <a href="">Agendas e Calendários</a>
+                                <a href="">Material de Escritório</a>
+                            </div>
+                        </li>
+                        <!--Menu Escondido Escritório-->
+
+                        <!--Menu Escondido Beleza e Moda-->
+                        <li class="nav-item" onmouseover="showBelezaSubmenu()" onmouseout="hideBelezaSubmenu()">
+                            <a href="#" class="nav-link">Beleza <i class="fa-solid fa-caret-right ml-2"></i></a>
+                            <div class="submenu" id="submenuBeleza">
+                                <a href="">Perfumes</a>
+                                <a href="">Maquiagem</a>
+                                <a href="">Depilação e Aparelhos para Barbear</a>
+                                <a href="">Manicure e Pedicure</a>
+                                <a href="">Cuidados com o Cabelo</a>
+                                <a href="">Móveis para Spa</a>
+                            </div>
+                        </li>
+                        <!--Menu Escondido Beleza e Moda-->
+
+                        <!--Menu Escondido Pets-->
+                        <li class="nav-item" onmouseover="showPetSubmenu()" onmouseout="hidePetSubmenu()">
+                            <a href="#" class="nav-link">Pets <i class="fa-solid fa-caret-right ml-2"></i></a>
+                            <div class="submenu" id="submenuPet">
+                                <a href="">Cachorros</a>
+                                <a href="">Gatos</a>
+                                <a href="">Peixes e Animais Aquáticos</a>
+                                <a href="">Roedores</a>
+                                <a href="">Aves e Pássaros</a>
+                                <a href="">Cavalos</a>
+                            </div>
+                        </li>
+                        <!--Menu Escondido Pets-->
+                        
+                        <!--Menu Escondido Futebol-->
+                        <li class="nav-item" onmouseover="showFutebolSubmenu()" onmouseout="hideFutebolSubmenu()">
+                            <a href="#" class="nav-link">Futebol <i class="fa-solid fa-caret-right ml-2"></i></a>
+                            <div class="submenu" id="submenuFutebol">
+                                <a href="">Chuteira de Society</a>
+                                <a href="">Chuteira de Futsal</a>
+                                <a href="">Chuteira de Campo</a>
+                                <a href="">Camisa de Time</a>
+                                <a href="">Boné</a>
+                                <a href="">Meião</a>
+                                <a href="">Calçao</a>
+                                <a href="">Luva</a>
+                                <a href="">Bola de Futsal</a>
+                                <a href="">Bola</a>
+                                <a href="">Caneleiras e Meiões</a>
+                            </div>
+                        </li>
+                        <!--Menu Escondido Futebol-->
+
+                        <!--Menu Escondido Vôlei-->
+                        <li class="nav-item" onmouseover="showVoleiSubmenu()" onmouseout="hideVoleiSubmenu()">
+                            <a href="#" class="nav-link">Vôlei <i class="fa-solid fa-caret-right ml-2"></i></a>
+                            <div class="submenu" id="submenuVolei">
+                                <a href="">Bolas de Vôlei</a>
+                                <a href="">Joelheiras de Vôlei</a>
+                                <a href="">Redes</a>
+                                <a href="">Tênis para Vôlei</a>
+                                <a href="">Roupas e Outros</a>
+                            </div>
+                        </li>
+                        <!--Menu Escondido Vôlei-->
+
+                        <!--Menu Escondido Basquete-->
+                        <li class="nav-item" onmouseover="showBasqueteSubmenu()" onmouseout="hideBasqueteSubmenu()">
+                            <a href="#" class="nav-link">Basquete <i class="fa-solid fa-caret-right ml-2"></i></a>
+                            <div class="submenu" id="submenuBasquete">
+                                <a href="">Tênis de Basquete</a>
+                                <a href="">Roupas</a>
+                                <a href="">Bolas</a>
+                                <a href="">Tabelas e Aros</a>
+                                <a href="">Redes e Outros</a>
+                            </div>
+                        </li>
+                        <!--Menu Escondido Basquete-->
+
+                        <!--Menu Escondido Atletismo-->
+                        <li class="nav-item" onmouseover="showAtletismoSubmenu()" onmouseout="hideAtletismoSubmenu()">
+                            <a href="#" class="nav-link">Atletismo <i class="fa-solid fa-caret-right ml-2"></i></a>
+                            <div class="submenu" id="submenuAtletismo">
+                                <a href="">Tênis de Corrida</a>
+                                <a href="">Roupas</a>
+                                <a href="">Boné</a>
+                                <a href="">Suporte para Celular</a>
+                                <a href="">MiniBands e Relógios</a>
+                            </div>
+                        </li>
+                        <!--Menu Escondido Atletismo-->
+
+                        <!--Menu Escondido Ciclismo-->
+                        <li class="nav-item" onmouseover="showCiclismoSubmenu()" onmouseout="hideCiclismoSubmenu()">
+                            <a href="#" class="nav-link">Ciclismo <i class="fa-solid fa-caret-right ml-2"></i></a>
+                            <div class="submenu" id="submenuCiclismo">
+                                <a href="">Bicicletas</a>
+                                <a href="">Bicicletas Ergonométricas</a>
+                                <a href="">Roupas</a>
+                                <a href="">Sapatilhas</a>
+                                <a href="">Peças</a>
+                                <a href="">Acessórios</a>
+                            </div>
+                        </li>
+                        <!--Menu Escondido Ciclismo-->
+                    </ul>
+                </nav>
+            </div>
+            <li><!--Nav INFERIOR-->
+                <a href="#">Mais Vendidos</a>
+            </li>
+            <li>
+                <a href="#">Ofertas</a>
+            </li>
+            <li>
+                <a href="#">Eletrônicos</a>
+            </li>
+            <li>
+                <a href="#">EletroDomésticos</a>
+            </li>
+            <li>
+                <a href="#">Escritório</a>
+            </li>
+            <li>
+                <a href="#">Beleza</a>
+            </li>
+            <li>
+                <a href="#">Pet Shop</a>
+            </li>
+            <li>
+                <a href="#">Esportes</a>
+            </li><!--Nav INFERIOR-->
+        </ul>
+    </nav><!--Nav iNFERIOR Fim-->
+
+    <section class="home-carousel"><!--Home Carousel-->
+        <div class="home-carousel">
+            <div class="row">
+                <div id="carousel-controles" class="carousel slide" data-ride="carousel">
+                    <!--Indicadores-->
+                    <ol class="carousel-indicators">
+                        <li class="active" data-target="#carousel-controles" data-slide-to="0"></li>
+
+                        <li data-target="#carousel-controles" data-slide-to="1"></li>
+
+                        <li data-target="#carousel-controles" data-slide-to="2"></li>
+
+                        <li data-target="#carousel-controles" data-slide-to="3"></li>
+
+                    </ol>
+
+                    <div class="carousel-inner"><!--Inicio Inner-->
+
+                        <div class="carousel-item active">
+                            <img src="img/slide1.png" alt="" class="img-fluid">
+                            <div class="carousel-caption">
+                                <h4><a href="">Saiba Mais...</a></h4>
+                            </div>
+                        </div>
+
+                        <div class="carousel-item">
+                            <img src="img/slide2.png" alt="" class="img-fluid">
+                            <div class="carousel-caption">
+                                <h4><a href="">Saiba Mais...</a></h4>
+                            </div>
+                        </div>
+
+                        <div class="carousel-item">
+                            <img src="img/slide3.png" alt="" class="img-fluid">
+                            <div class="carousel-caption">
+                                <h4><a href="">Saiba Mais...</a></h4>
+                            </div>
+                        </div>
+
+                        <div class="carousel-item">
+                            <img src="img/slide4.png" alt="" class="img-fluid">
+                            <div class="carousel-caption">
+                                <h4><a href="">Saiba Mais...</a></h4>
+                            </div>
+                        </div>
+                    </div><!--Fim Inner-->
+                <!--Controles-->
+                    <a href="#carousel-controles" class="carousel-control-prev" data-slide="prev">
+                        <i class="fa-solid fa-chevron-left fa-2x"></i>
+                    </a>
+
+                    <a href="#carousel-controles" class="carousel-control-next" data-slide="next">
+                        <i class="fa-solid fa-chevron-right fa-2x"></i>
+                    </a>
+                <!--Fim Controles-->
+                </div>
+            </div>
+        </div>
+    </section><!--Fim Home Carousel-->
+
+    <main><!--Produtos em Alta-->
+        <div id="productCarousel" class="carousel slide" data-bs-ride="carousel1">
+            <!-- Slides dos produtos -->
+            <h1 class="ml-4 mt-4">Produtos em Alta!</h1>
+            <div class="row carousel-products ml-4">
+                <div id="feedCarousel" class="carousel slide" data-bs-ride="carousel">
+                    <div class="carousel-inner">
+                        <div class="carousel-item active">
+                            <div class="row">
+                                <div class="col-md-2 ml-4">
+                                    <div class="feed-item">
+                                        <img src="img/slide-pd1.png" alt="Produto 1">
+                                        <h3>Título do Produto 1</h3>
+                                        <p>Descrição do Produto 1</p>
+                                        <p>Preço: R$ 99,99</p>
+                                    </div>
+                                </div>
+                                <div class="col-md-2 ml-4">
+                                    <div class="feed-item">
+                                        <img src="img/slide-pd2.png" alt="Produto 1">
+                                        <h3>Título do Produto 2</h3>
+                                        <p>Descrição do Produto 2</p>
+                                        <p>Preço: R$ 99,99</p>
+                                    </div>
+                                </div>
+    
+                                <div class="col-md-2 ml-4">
+                                    <div class="feed-item">
+                                        <img src="img/slide-pd3.png" alt="Produto 1">
+                                        <h3>Título do Produto 3</h3>
+                                        <p>Descrição do Produto 3</p>
+                                        <p>Preço: R$ 99,99</p>
+                                    </div>
+                                </div>
+    
+                                <div class="col-md-2 ml-4">
+                                    <div class="feed-item">
+                                        <img src="img/slide-pd2.png" alt="Produto 1">
+                                        <h3>Título do Produto 4</h3>
+                                        <p>Descrição do Produto 4</p>
+                                        <p>Preço: R$ 99,99</p>
+                                    </div>
+                                </div>
+    
+                                <div class="col-md-2 ml-4">
+                                    <div class="feed-item">
+                                        <img src="img/slide-pd1.png" alt="Produto 1">
+                                        <h3>Título do Produto 5</h3>
+                                        <p>Descrição do Produto 5</p>
+                                        <p>Preço: R$ 99,99</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    <!-- Controles do Carousel -->
+                    <a class="carousel-control-prev carousel1" href="#feedCarousel1" role="button" data-bs-slide="prev">
+                        <i class="fa-solid fa-chevron-left fa-2x"></i>
+                    </a>
+                    <a class="carousel-control-next carousel1" href="#feedCarousel1" role="button" data-bs-slide="next">
+                        <i class="fa-solid fa-chevron-right fa-2x"></i>
+                    </a>
+                </div>
+            </div>
+    </main><!--Produtos em Alta-->
+
+    <section class="home-beneficios">
+        <div class="container">
+            <div class="row">
+                <div class="bene-h1">
+                    <h1>Benefícios de Comprar!</h1>
+                </div>
+                <div class="beneficio">
+                    <div class="beneficios-content">
+                        <img src="img/circulo.png" alt="">
+                    </div>
+                    <div class="legenda-container">
+                        <h6>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</h6>
+                        <img src="img/icone-frete.png" alt="" width="85" class="img-frete">
+                    </div>
+                </div>
+                <div class="beneficio">
+                    <div class="beneficios-content">
+                        <img src="img/circulo.png" alt="">
+                    </div>
+                    <div class="legenda-container">
+                        <h6>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</h6>
+                        <img src="img/icone-frete.png" alt="" width="85" class="img-frete">
+                    </div>
+                </div>
+                <div class="beneficio">
+                    <div class="beneficios-content">
+                        <img src="img/circulo.png" alt="">
+                    </div>
+                    <div class="legenda-container mt-4">
+                        <h6>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</h6>
+                        <img src="img/icone-frete.png" alt="" width="85" class="img-frete">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="banner">
+        <div class="row">
+            <img src="img/banner.png" alt="" class="img fluid" width="1364">
+        </div>
+    </section>
+<!--Categorias-->
+    <div>
+        <h1 style="margin-top: 75px; margin-left: 35px;">Categorias Populares</h1>
+    </div>
+    <div class="menu">
+        <div class="categoria">
+          <a href="">
+            <img src="img/iconecel.png" alt="Tecnologia" width="122">
+            <p>Tecnologia</p>
+          </a>
+        </div>
+        <div class="categoria">
+          <a href="">
+            <img src="img/iconegela.png" alt="Eletro" width="92" style="padding-top: 15px;">
+            <p style="padding-top: 15px;">EletroDomésticos</p>
+          </a>
+        </div>
+        <div class="categoria">
+            <a href="">
+              <img src="img/iconepape.png" alt="Papelaria" width="92" style="padding-top: 15px;">
+              <p style="padding-top: 13px;">Escritório</p>
+            </a>
+        </div>
+        <div class="categoria">
+            <a href="">
+              <img src="img/iconebatom.png" alt="Beleza" width="92" style="padding-top: 15px;">
+              <p style="padding-top: 13px;">Beleza</p>
+            </a>
+        </div>
+        <div class="categoria">
+            <a href="">
+              <img src="img/iconemoda.png" alt="Moda" width="92" style="padding-top: 15px;">
+              <p style="padding-top: 13px;">Moda</p>
+            </a>
+        </div>
+        <div class="categoria">
+            <a href="">
+              <img src="img/iconepet.png" alt="Pet" width="92" style="padding-top: 15px;">
+              <p style="padding-top: 13px;">PetShop</p>
+            </a>
+        </div>
+        <div class="categoria">
+            <a href="">
+              <img src="img/iconefutebol.png" alt="Futebol" width="92" style="padding-top: 15px;">
+              <p style="padding-top: 13px;">Futebol</p>
+            </a>
+        </div>
+        <div class="categoria">
+            <a href="">
+              <img src="img/iconevolei.png" alt="Volei" width="92" style="padding-top: 15px;">
+              <p style="padding-top: 13px;">Volei</p>
+            </a>
+        </div>
+        <div class="categoria">
+            <a href="">
+              <img src="img/iconebasquete.png" alt="Basquete" width="92" style="padding-top: 15px;">
+              <p style="padding-top: 13px;">Basquete</p>
+            </a>
+        </div>
+        <div class="categoria">
+            <a href="">
+              <img src="img/iconeatletismo.png" alt="Atletismo" width="92" style="padding-top: 15px;">
+              <p style="padding-top: 13px;">Atletismo</p>
+            </a>
+        </div>
+        <div class="categoria">
+            <a href="">
+              <img src="img/iconeciclismo.png" alt="Ciclismo" width="92" style="padding-top: 15px;">
+              <p style="padding-top: 13px;">Ciclismo</p>
+            </a>
+        </div>
+        <div class="categoria">
+            <a href="">
+              <img src="img/iconetenis.png" alt="Tenis" width="92" style="padding-top: 15px;">
+              <p style="padding-top: 13px;">Tênis</p>
+            </a>
+        </div>
+        <div class="categoria">
+            <a href="">
+              <img src="img/iconeperfume.png" alt="Perfume" width="92" style="padding-top: 15px;">
+              <p style="padding-top: 13px;">Perfume</p>
+            </a>
+        </div>
+        <div class="categoria">
+            <a href="">
+              <img src="img/iconechuteira.png" alt="Chuteira" width="92" style="padding-top: 15px;">
+              <p style="padding-top: 13px;">Chuteiras</p>
+            </a>
+        </div>
+      </div>
+<!--Categorias-->     
+
+    <footer class="contact">
+        <div class="contact-info container">
+			<div class="first-info">
+				<img src="img/logo.png" width="50" class="img-fluid">
+
+				<p>Rua Santo Angelo, 2178 - <br> Curitiba, Paraná</p>
+				<p>02675-423</p>
+				<p>+55 (41) 4002-8922</p>
+				<p>onlineshop@.com</p>
+
+				<div class="social-icon">
+					<a href="#"><i class='bx bxl-facebook'></i></a>
+					<a href="#"><i class='bx bxl-twitter' ></i></a>
+					<a href="#"><i class='bx bxl-instagram' ></i></a>
+					<a href="#"><i class='bx bxl-youtube' ></i></a>
+					<a href="#"><i class='bx bxl-linkedin' ></i></a>
+				</div>
+			</div>
+
+			<div class="second-info">
+				<h4>Suporte</h4>
+				<p>Contate-nos</p>
+				<p>Sobre a Página</p>
+				<p>Lorem ipsum</p>
+				<p>Lorem ipsum</p>
+				<p>Privacidade</p>
+			</div>
+
+			<div class="third-info">
+				<h4>Lorem ipsum</h4>
+				<p>Lorem ipsum</p>
+				<p>Lorem ipsum</p>
+				<p>Lorem ipsum</p>
+				<p>Lorem ipsum</p>
+			</div>
+
+			<div class="fourth-info">
+				<h4>Lorem ipsum</h4>
+				<p>Sobre</p>
+				<p>Lorem</p>
+				<p>Lorem ipsum</p>
+				<p>Login</p>
+			</div>
+
+			<div class="five">
+				<h4>Inscreva-se</h4>
+				<p>Receba Novidades no E-mail.</p>
+				<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec consectetur nec eros a suscipit.</p>
+				<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+			</div>
+		</div>
+    </footer>
+    
+    <!-- jQuery primeiro, depois Popper.js, depois Bootstrap JS -->
+    <script src="java.js"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+  </body>
+</html>
